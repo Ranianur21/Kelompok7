@@ -1,0 +1,16 @@
+public class Soal3kuis2 {
+
+    public static void main(String[] args) {
+      String nama[][]= {
+            {"Baju", "\t 20k"}, {"Celana", "\t75k"}, {"Topi","\t 45k"}, {"Kemeja", "\t 35k"}, {"Hijab", "\t 25k"}
+        };
+        System.out.println("Toko Berkah");
+        System.out.println("Daftar Nama\tHarga");
+        for(int i=0;i<5;i++){
+            for(int j=0;j<2;j++){
+                System.out.print(nama[i][j]);
+            }
+            System.out.println("");
+        }
+    }
+}

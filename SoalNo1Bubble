@@ -1,0 +1,57 @@
+public class KUISBPNO1 {
+    public static void main(String[] args) {
+        Barang[] barangArr = {
+                new Barang("Laptop", 800),
+                new Barang("Smartphone", 500),
+                new Barang("Headphones", 100),
+        };
+        for (int i = 0; i < barangArr.length - 1; i++) {
+            for (int j = 0; j < barangArr.length - i - 1; j++) {
+                if (barangArr[j].harga > barangArr[j + 1].harga) {
+                    Barang temp = barangArr[j];
+                    barangArr[j] = barangArr[j + 1];
+                    barangArr[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("Harga Terendah:");
+        for (Barang barang : barangArr) {
+            System.out.println(barang.nama + ": " + barang.harga);
+        }
+        for (int i = 0; i < barangArr.length - 1; i++) {
+            for (int j = 0; j < barangArr.length - i - 1; j++) {
+                if (barangArr[j].harga < barangArr[j + 1].harga) {
+                    Barang temp = barangArr[j];
+                    barangArr[j] = barangArr[j + 1];
+                    barangArr[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("\nHarga Tertinggi:");
+        for (Barang barang : barangArr) {
+            System.out.println(barang.nama + ": " + barang.harga);
+        }
+        for (int i = 0; i < barangArr.length - 1; i++) {
+            for (int j = 0; j < barangArr.length - i - 1; j++) {
+                if (barangArr[j].nama.compareTo(barangArr[j + 1].nama) > 0) {
+                    Barang temp = barangArr[j];
+                    barangArr[j] = barangArr[j + 1];
+                    barangArr[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("\nNama (Abjad):");
+        for (Barang barang : barangArr) {
+            System.out.println(barang.nama + ": " + barang.harga);
+        }
+    }
+}
+class Barang {
+    String nama;
+    int harga;
+
+    public Barang(String nama, int harga) {
+        this.nama = nama;
+        this.harga = harga;
+    }
+}

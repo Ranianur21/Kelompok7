@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+class Barang {
+    String Jajanan;
+    int harga;
+
+public Barang(String nama, int harga) {
+        this.Jajanan = nama;
+        this.harga = harga;
+    }
+}
+public class Searching {
+    private static List<Barang> daftarBarang = new ArrayList<>();
+    public static void main(String[] args) {
+        inisialisasiDataBarang();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Masukkan Jajanan yang ingin anda cari: ");
+        String kataKunci = scanner.nextLine().toLowerCase();
+        List<Barang> hasilPencarian = cariBarang(kataKunci);
+        if (hasilPencarian.isEmpty()) {
+            System.out.println("Barang tidak ditemukan.");
+        } else {
+            System.out.println("Hasil Pencarian:");
+            for (Barang barang : hasilPencarian) {
+                System.out.println("Nama: " + barang.Jajanan + ", Harga: " + barang.harga);
+            }
+        }
+    }
+    private static List<Barang> cariBarang(String kataKunci) {
+        List<Barang> hasilPencarian = new ArrayList<>();
+
+        for (Barang barang : daftarBarang) {
+            if (barang.Jajanan.toLowerCase().contains(kataKunci)) {
+                hasilPencarian.add(barang);
+            }
+        }
+        return hasilPencarian;
+    }
+
+    private static void inisialisasiDataBarang() {
+        daftarBarang.add(new Barang("Nabati", 2000));
+        daftarBarang.add(new Barang("Pocky", 8000));
+        daftarBarang.add(new Barang("Taro", 5000));
+        daftarBarang.add(new Barang("Bengbeng", 2500));
+        daftarBarang.add(new Barang("Chitato", 12000));
+        daftarBarang.add(new Barang("Deka", 1000));
+    }
+}
